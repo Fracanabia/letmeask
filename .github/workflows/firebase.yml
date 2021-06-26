@@ -16,7 +16,6 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v2
@@ -24,11 +23,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn
-      - name: yarn install, build and test
+      - name: npm install, build and test
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm build
         env:
           REACT_APP_API_KEY: ${{ secrets.FIREBASE_TOKEN }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
@@ -54,7 +52,7 @@ jobs:
         with:
           name: build
           path: build
-      - name: Depoy to Firebase
+      - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
