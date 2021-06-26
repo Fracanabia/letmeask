@@ -23,10 +23,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, build and test
+      - run: npm install -g yarn
+      - name: yarn install, build and test
         run: |
-          npm install
-          npm build
+          yarn install
+          yarn build
         env:
           REACT_APP_API_KEY: ${{ secrets.FIREBASE_TOKEN }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
