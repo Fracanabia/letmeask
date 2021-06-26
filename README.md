@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Fracanabia/letmeask.svg?branch=master)](https://travis-ci.org/Fracanabia/letmeask)
+
 # Deploy CI - Firebase
 
 # Getting Started with Create React App
