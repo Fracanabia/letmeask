@@ -23,11 +23,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn
-      - name: yarn install, build and test
-        run: |
-          yarn install
-          yarn build
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
@@ -36,6 +31,11 @@ jobs:
           REACT_APP_STORAGE_BUCKET: ${{ secrets.REACT_APP_STORAGE_BUCKET }}
           REACT_APP_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_MESSAGING_SENDER_ID }}
           REACT_APP_APP_ID: ${{ secrets.REACT_APP_APP_ID }}
+      - run: npm install -g yarn
+      - name: yarn install, build and test
+        run: |
+          yarn install
+          yarn build
       - name: Archive Build
         uses: actions/upload-artifact@v2
         with:
