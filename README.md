@@ -1,4 +1,4 @@
-# Deploy CI - Firebase.
+# Deploy CI - Firebase
 
 # Getting Started with Create React App
 
