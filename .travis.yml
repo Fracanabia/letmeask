@@ -5,9 +5,7 @@ cache:
   directories:
     - node_modules
 script:
-  - npm install -g yarn
-  - yarn install
-  - yarn build
+  - npm run build
 
 deploy:
   provider: pages
